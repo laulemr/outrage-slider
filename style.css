@@ -127,6 +127,37 @@ h1 span {
   line-height: 1.5;
 }
 
+.step-controls {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.step-controls button {
+  background: transparent;
+  color: #f1ead8;
+  border: 1px solid #ef342b;
+  padding: 10px 14px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.step-controls button:hover,
+.step-controls button:focus-visible {
+  background: #ef342b;
+  color: #fff;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.step-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 input[type="range"] {
   width: 100%;
   accent-color: #ef342b;
