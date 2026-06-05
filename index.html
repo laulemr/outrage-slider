@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Feed — The Model Live</title>
+  <title>The Feed — Outrage Slider</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#outrageSlider">Skip to slider</a>
+
   <main class="slide" aria-labelledby="slide-title">
     <header class="topbar">
       <p><span aria-hidden="true">•</span> The Invisible Editor</p>
-      <p class="counter">04 / 12</p>
+      <p class="counter" aria-label="Slide 4 of 12">04 / 12</p>
     </header>
 
     <section class="layout">
-      <aside class="controls">
+      <aside class="controls" aria-labelledby="slide-title">
         <p class="eyebrow">The Model, Live</p>
 
         <h1 id="slide-title">
@@ -26,14 +28,19 @@
         <p class="label-red">Optimise for</p>
         <p class="metric-label">Outrage</p>
 
-        <p class="score">
+        <p class="score" aria-hidden="true">
           <span id="score">0</span>
           <span>/ 10</span>
         </p>
 
-        <label for="outrageSlider" class="sr-only">
-          Optimise feed for outrage from calm to inflamed
+        <label for="outrageSlider" class="slider-label">
+          Outrage level
         </label>
+
+        <p id="slider-description" class="instruction">
+          Use the slider to change the feed from calm to inflamed.
+          Keyboard users can use Tab to reach the slider, then use the left and right arrow keys.
+        </p>
 
         <input
           id="outrageSlider"
@@ -42,6 +49,7 @@
           max="10"
           value="0"
           step="1"
+          aria-describedby="slider-description slider-status"
         />
 
         <div class="scale" aria-hidden="true">
@@ -49,14 +57,36 @@
           <span>Inflamed</span>
         </div>
 
-        <p id="slider-help" class="hint">
-          Focus the slider to take control.
+        <p id="slider-status" class="status" aria-live="polite">
+          Outrage level 0 out of 10. Your feed favours calmer, lower-conflict items.
         </p>
       </aside>
 
-      <section class="feed" aria-live="polite" aria-label="Ranked news feed">
+      <section class="feed" aria-labelledby="feed-heading">
+        <h2 id="feed-heading" class="sr-only">Ranked feed results</h2>
         <ol id="feedList"></ol>
       </section>
+    </section>
+
+    <section class="text-version" aria-labelledby="text-version-heading">
+      <details>
+        <summary id="text-version-heading">Accessible text version of this activity</summary>
+        <p>
+          This activity shows how changing one ranking goal can rearrange a feed.
+        </p>
+        <p>
+          At lower outrage levels, the feed favours calmer stories about research,
+          local updates, culture, and policy.
+        </p>
+        <p>
+          At higher outrage levels, the feed prioritises conflict-heavy headlines
+          about backlash, controversy, anger, and public disputes.
+        </p>
+        <p>
+          The point: a feed does not simply show information. It ranks information
+          according to what the system is optimising for.
+        </p>
+      </details>
     </section>
 
     <p class="footer-note">
