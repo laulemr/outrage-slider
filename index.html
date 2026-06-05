@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Feed — The Model Live</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="slide" aria-labelledby="slide-title">
+    <header class="topbar">
+      <p><span aria-hidden="true">•</span> The Invisible Editor</p>
+      <p class="counter">04 / 12</p>
+    </header>
+
+    <section class="layout">
+      <aside class="controls">
+        <p class="eyebrow">The Model, Live</p>
+
+        <h1 id="slide-title">
+          Move the slider. Watch your world
+          <span>rearrange.</span>
+        </h1>
+
+        <p class="label-red">Optimise for</p>
+        <p class="metric-label">Outrage</p>
+
+        <p class="score">
+          <span id="score">0</span>
+          <span>/ 10</span>
+        </p>
+
+        <label for="outrageSlider" class="sr-only">
+          Optimise feed for outrage from calm to inflamed
+        </label>
+
+        <input
+          id="outrageSlider"
+          type="range"
+          min="0"
+          max="10"
+          value="0"
+          step="1"
+        />
+
+        <div class="scale" aria-hidden="true">
+          <span>Calm</span>
+          <span>Inflamed</span>
+        </div>
+
+        <p id="slider-help" class="hint">
+          Focus the slider to take control.
+        </p>
+      </aside>
+
+      <section class="feed" aria-live="polite" aria-label="Ranked news feed">
+        <ol id="feedList"></ol>
+      </section>
+    </section>
+
+    <p class="footer-note">
+      This is not hypothetical. This is the model.
+    </p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
