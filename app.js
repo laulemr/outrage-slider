@@ -57,7 +57,9 @@ const outrageFeed = [
 const feedList = document.querySelector("#feedList");
 const slider = document.querySelector("#outrageSlider");
 const score = document.querySelector("#score");
-const status = document.querySelector("#slider-status");
+const statusText = document.querySelector("#slider-status");
+const decreaseBtn = document.querySelector("#decreaseBtn");
+const increaseBtn = document.querySelector("#increaseBtn");
 
 function getBlendedFeed(value) {
   const threshold = Number(value);
@@ -114,35 +116,83 @@ function renderFeed(value) {
   });
 
   score.textContent = value;
-  status.textContent = getStatusMessage(value);
+  statusText.textContent = getStatusMessage(value);
 }
 
+function setSliderValue(newValue) {
+  const min = Number(slider.min);
+  const max = Number(slider.max);
+  const safeValue = Math.max(min, Math.min(max, Number(newValue)));
+
+  slider.value = safeValue;
+  renderFeed(safeValue);
+
+  decreaseBtn.disabled = safeValue === min;
+  increaseBtn.disabled = safeValue === max;
+}
+
+decreaseBtn.addEventListener("click", () => {
+  setSliderValue(Number(slider.value) - 1);
+});
+
+increaseBtn.addEventListener("click", () => {
+  setSliderValue(Number(slider.value) + 1);
+});
+
+decreaseBtn.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight" || event.key === "ArrowUp") {
+    event.preventDefault();
+    setSliderValue(Number(slider.value) + 1);
+  }
+});
+
+increaseBtn.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
+    event.preventDefault();
+    setSliderValue(Number(slider.value) - 1);
+  }
+});
+
 slider.addEventListener("input", (event) => {
-  renderFeed(event.target.value);
+  setSliderValue(event.target.value);
+});
+
+slider.addEventListener("change", (event) => {
+  setSliderValue(event.target.value);
 });
 
 slider.addEventListener("keydown", (event) => {
   const current = Number(slider.value);
 
+  if (event.key === "ArrowRight" || event.key === "ArrowUp") {
+    event.preventDefault();
+    setSliderValue(current + 1);
+  }
+
+  if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
+    event.preventDefault();
+    setSliderValue(current - 1);
+  }
+
   if (event.key === "Home") {
-    slider.value = slider.min;
-    renderFeed(slider.value);
+    event.preventDefault();
+    setSliderValue(slider.min);
   }
 
   if (event.key === "End") {
-    slider.value = slider.max;
-    renderFeed(slider.value);
+    event.preventDefault();
+    setSliderValue(slider.max);
   }
 
   if (event.key === "PageUp") {
-    slider.value = Math.min(current + 2, Number(slider.max));
-    renderFeed(slider.value);
+    event.preventDefault();
+    setSliderValue(current + 2);
   }
 
   if (event.key === "PageDown") {
-    slider.value = Math.max(current - 2, Number(slider.min));
-    renderFeed(slider.value);
+    event.preventDefault();
+    setSliderValue(current - 2);
   }
 });
 
-renderFeed(slider.value);
+setSliderValue(slider.value);
