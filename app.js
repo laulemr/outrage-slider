@@ -57,14 +57,15 @@ const outrageFeed = [
 const feedList = document.querySelector("#feedList");
 const slider = document.querySelector("#outrageSlider");
 const score = document.querySelector("#score");
-const hint = document.querySelector("#slider-help");
+const status = document.querySelector("#slider-status");
 
 function getBlendedFeed(value) {
   const threshold = Number(value);
 
-  const mixed = [...calmFeed, ...outrageFeed]
+  return [...calmFeed, ...outrageFeed]
     .map((item) => {
       const distance = Math.abs(item.outrage - threshold);
+
       return {
         ...item,
         rankScore: 10 - distance + item.outrage * (threshold / 18)
@@ -72,8 +73,20 @@ function getBlendedFeed(value) {
     })
     .sort((a, b) => b.rankScore - a.rankScore)
     .slice(0, 5);
+}
 
-  return mixed;
+function getStatusMessage(value) {
+  const number = Number(value);
+
+  if (number <= 3) {
+    return `Outrage level ${number} out of 10. Your feed favours calmer, lower-conflict items.`;
+  }
+
+  if (number <= 6) {
+    return `Outrage level ${number} out of 10. Your feed is beginning to reward stronger reactions.`;
+  }
+
+  return `Outrage level ${number} out of 10. Your feed now prioritises conflict, intensity, and outrage.`;
 }
 
 function renderFeed(value) {
@@ -101,18 +114,35 @@ function renderFeed(value) {
   });
 
   score.textContent = value;
-
-  if (value <= 3) {
-    hint.textContent = "Your feed favours calmer, lower-conflict items.";
-  } else if (value <= 6) {
-    hint.textContent = "Your feed is beginning to reward stronger reactions.";
-  } else {
-    hint.textContent = "Your feed now prioritises conflict, intensity, and outrage.";
-  }
+  status.textContent = getStatusMessage(value);
 }
 
 slider.addEventListener("input", (event) => {
   renderFeed(event.target.value);
+});
+
+slider.addEventListener("keydown", (event) => {
+  const current = Number(slider.value);
+
+  if (event.key === "Home") {
+    slider.value = slider.min;
+    renderFeed(slider.value);
+  }
+
+  if (event.key === "End") {
+    slider.value = slider.max;
+    renderFeed(slider.value);
+  }
+
+  if (event.key === "PageUp") {
+    slider.value = Math.min(current + 2, Number(slider.max));
+    renderFeed(slider.value);
+  }
+
+  if (event.key === "PageDown") {
+    slider.value = Math.max(current - 2, Number(slider.min));
+    renderFeed(slider.value);
+  }
 });
 
 renderFeed(slider.value);
