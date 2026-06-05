@@ -9,6 +9,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10;
+  background: #ef342b;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
 .slide {
   min-height: 100vh;
   padding: 18px 5% 28px;
@@ -18,7 +33,6 @@ body {
 .topbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   color: #6f6a78;
   font-size: 12px;
   letter-spacing: 0.35em;
@@ -42,8 +56,14 @@ body {
   align-items: center;
 }
 
-.eyebrow {
+.eyebrow,
+.instruction,
+.status,
+.footer-note {
   color: #6f6a78;
+}
+
+.eyebrow {
   font-size: 13px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
@@ -75,7 +95,6 @@ h1 span {
   margin: 0;
   font-family: Impact, "Arial Narrow", Arial, sans-serif;
   font-size: 44px;
-  line-height: 1;
   text-transform: uppercase;
 }
 
@@ -95,9 +114,27 @@ h1 span {
   margin-left: 8px;
 }
 
+.slider-label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+  color: #f1ead8;
+}
+
+.instruction,
+.status {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 input[type="range"] {
   width: 100%;
   accent-color: #ef342b;
+}
+
+input[type="range"]:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 8px;
 }
 
 .scale {
@@ -107,13 +144,6 @@ input[type="range"] {
   font-size: 12px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-}
-
-.hint,
-.footer-note {
-  color: #57515f;
-  font-size: 15px;
-  line-height: 1.5;
 }
 
 .feed {
@@ -161,8 +191,25 @@ input[type="range"] {
   color: #fff7df;
 }
 
+.text-version {
+  max-width: 780px;
+  margin-top: 52px;
+  color: #c9c2d4;
+}
+
+.text-version summary {
+  cursor: pointer;
+  color: #f1ead8;
+  font-weight: bold;
+}
+
+.text-version p {
+  line-height: 1.6;
+}
+
 .footer-note {
-  margin-top: 80px;
+  margin-top: 56px;
+  font-size: 15px;
 }
 
 .sr-only {
@@ -182,10 +229,7 @@ input[type="range"] {
     grid-template-columns: 40px 1fr;
   }
 
-  .category {
-    grid-column: 2;
-  }
-
+  .category,
   .headline {
     grid-column: 2;
   }
