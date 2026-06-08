@@ -11,7 +11,7 @@ const calmFeed = [
   },
   {
     category: "Culture",
-    headline: "Community theatre opens thoughtful adaptation of classic play",
+    headline: "Community theatre opens thoughtful adaptation of a classic play",
     outrage: 2
   },
   {
@@ -74,7 +74,7 @@ function getBlendedFeed(value) {
       };
     })
     .sort((a, b) => b.rankScore - a.rankScore)
-    .slice(0, 5);
+    .slice(0, 3);
 }
 
 function getStatusMessage(value) {
