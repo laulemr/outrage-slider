@@ -4,8 +4,8 @@
 
 body {
   margin: 0;
-  background: #09090b;
-  color: #f1ead8;
+  background: #1B2430;
+  color: #F7F3EA;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -14,38 +14,42 @@ body {
   top: -100px;
   left: 1rem;
   z-index: 10;
-  background: #ef342b;
-  color: #fff;
-  padding: 0.6rem 1rem;
-  text-decoration: none;
+  background: #8F241C;
+  color: #FFFFFF;
+  padding: 0.7rem 1rem;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 1rem;
+  outline: 4px solid #FFD166;
+  outline-offset: 4px;
 }
 
 .slide {
   min-height: 100vh;
   padding: 18px 5% 28px;
-  background: #09090b;
+  background: #1B2430;
 }
 
 .topbar {
   display: flex;
   justify-content: space-between;
-  color: #6f6a78;
+  color: #D6DEE6;
   font-size: 12px;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 .topbar span {
-  color: #ef342b;
+  color: #FF8A80;
   font-size: 20px;
 }
 
 .counter {
-  color: #f1ead8;
+  color: #F7F3EA;
 }
 
 .layout {
@@ -60,56 +64,56 @@ body {
 .instruction,
 .status,
 .footer-note {
-  color: #6f6a78;
+  color: #D6DEE6;
 }
 
 .eyebrow {
   font-size: 13px;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
 h1 {
   margin: 12px 0 24px;
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: clamp(32px, 4vw, 48px);
-  line-height: 0.98;
-  font-weight: 400;
+  line-height: 1.05;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
 h1 span {
   display: block;
-  color: #ef342b;
+  color: #FF8A80;
 }
 
 .label-red {
   margin: 18px 0 4px;
-  color: #ef342b;
+  color: #FF8A80;
   font-size: 13px;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
 .metric-label {
   margin: 0;
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: 44px;
   text-transform: uppercase;
 }
 
 .score {
   margin: 12px 0 10px;
-  color: #ef342b;
+  color: #FF8A80;
 }
 
 .score #score {
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: 68px;
 }
 
 .score span:last-child {
-  color: #6f6a78;
+  color: #D6DEE6;
   font-size: 16px;
   margin-left: 8px;
 }
@@ -118,13 +122,13 @@ h1 span {
   display: block;
   margin-top: 12px;
   font-weight: bold;
-  color: #f1ead8;
+  color: #F7F3EA;
 }
 
 .instruction,
 .status {
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .step-controls {
@@ -136,8 +140,8 @@ h1 span {
 
 .step-controls button {
   background: transparent;
-  color: #f1ead8;
-  border: 1px solid #ef342b;
+  color: #F7F3EA;
+  border: 2px solid #FF8A80;
   padding: 10px 14px;
   font-size: 13px;
   letter-spacing: 0.12em;
@@ -145,40 +149,44 @@ h1 span {
   cursor: pointer;
 }
 
-.step-controls button:hover,
+.step-controls button:hover {
+  background: rgba(255, 138, 128, 0.14);
+}
+
+.step-controls button:focus,
 .step-controls button:focus-visible {
-  background: #ef342b;
-  color: #fff;
-  outline: 3px solid #fff;
-  outline-offset: 3px;
+  outline: 4px solid #FFD166;
+  outline-offset: 4px;
+  border-color: #FFD166;
 }
 
 .step-controls button:disabled {
-  opacity: 0.45;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
 input[type="range"] {
   width: 100%;
-  accent-color: #ef342b;
+  accent-color: #FF8A80;
 }
 
+input[type="range"]:focus,
 input[type="range"]:focus-visible {
-  outline: 3px solid #fff;
+  outline: 4px solid #FFD166;
   outline-offset: 8px;
 }
 
 .scale {
   display: flex;
   justify-content: space-between;
-  color: #6f6a78;
+  color: #D6DEE6;
   font-size: 12px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .feed {
-  border-top: 1px solid #252329;
+  border-top: 2px solid #7F8A99;
 }
 
 .feed ol {
@@ -193,24 +201,24 @@ input[type="range"]:focus-visible {
   gap: 16px;
   align-items: baseline;
   padding: 20px 0;
-  border-bottom: 1px solid #252329;
+  border-bottom: 2px solid #7F8A99;
 }
 
 .rank {
-  color: #6f6a78;
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  color: #D6DEE6;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: 28px;
 }
 
 .category {
-  color: #6f6a78;
+  color: #D6DEE6;
   font-size: 11px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 .category.hot {
-  color: #ef342b;
+  color: #FF8A80;
 }
 
 .headline {
@@ -218,20 +226,27 @@ input[type="range"]:focus-visible {
   font-size: clamp(22px, 3vw, 31px);
   font-style: italic;
   font-weight: bold;
-  line-height: 1.25;
-  color: #fff7df;
+  line-height: 1.35;
+  color: #F7F3EA;
 }
 
 .text-version {
   max-width: 780px;
   margin-top: 52px;
-  color: #c9c2d4;
+  color: #F7F3EA;
 }
 
 .text-version summary {
   cursor: pointer;
-  color: #f1ead8;
+  color: #F7F3EA;
   font-weight: bold;
+  text-decoration: underline;
+}
+
+.text-version summary:focus,
+.text-version summary:focus-visible {
+  outline: 4px solid #FFD166;
+  outline-offset: 4px;
 }
 
 .text-version p {
@@ -246,9 +261,18 @@ input[type="range"]:focus-visible {
 .sr-only {
   position: absolute;
   left: -10000px;
+  top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+    transition: none;
+    animation: none;
+  }
 }
 
 @media (max-width: 850px) {
