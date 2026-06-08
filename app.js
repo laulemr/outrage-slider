@@ -81,14 +81,19 @@ function getStatusMessage(value) {
   const number = Number(value);
 
   if (number <= 3) {
-    return `Outrage level ${number} out of 10. Your feed favours calmer, lower-conflict items.`;
+    return `Outrage level ${number} out of 10. Your feed favors calmer, lower-conflict items.`;
   }
 
   if (number <= 6) {
     return `Outrage level ${number} out of 10. Your feed is beginning to reward stronger reactions.`;
   }
 
-  return `Outrage level ${number} out of 10. Your feed now prioritises conflict, intensity, and outrage.`;
+  return `Outrage level ${number} out of 10. Your feed now prioritizes conflict, intensity, and outrage.`;
+}
+
+function updateSliderAccessibility(value) {
+  slider.setAttribute("aria-valuenow", String(value));
+  slider.setAttribute("aria-valuetext", `Outrage level ${value} out of 10`);
 }
 
 function renderFeed(value) {
@@ -117,6 +122,7 @@ function renderFeed(value) {
 
   score.textContent = value;
   statusText.textContent = getStatusMessage(value);
+  updateSliderAccessibility(value);
 }
 
 function setSliderValue(newValue) {
@@ -139,60 +145,12 @@ increaseBtn.addEventListener("click", () => {
   setSliderValue(Number(slider.value) + 1);
 });
 
-decreaseBtn.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowRight" || event.key === "ArrowUp") {
-    event.preventDefault();
-    setSliderValue(Number(slider.value) + 1);
-  }
-});
-
-increaseBtn.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
-    event.preventDefault();
-    setSliderValue(Number(slider.value) - 1);
-  }
-});
-
 slider.addEventListener("input", (event) => {
   setSliderValue(event.target.value);
 });
 
 slider.addEventListener("change", (event) => {
   setSliderValue(event.target.value);
-});
-
-slider.addEventListener("keydown", (event) => {
-  const current = Number(slider.value);
-
-  if (event.key === "ArrowRight" || event.key === "ArrowUp") {
-    event.preventDefault();
-    setSliderValue(current + 1);
-  }
-
-  if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
-    event.preventDefault();
-    setSliderValue(current - 1);
-  }
-
-  if (event.key === "Home") {
-    event.preventDefault();
-    setSliderValue(slider.min);
-  }
-
-  if (event.key === "End") {
-    event.preventDefault();
-    setSliderValue(slider.max);
-  }
-
-  if (event.key === "PageUp") {
-    event.preventDefault();
-    setSliderValue(current + 2);
-  }
-
-  if (event.key === "PageDown") {
-    event.preventDefault();
-    setSliderValue(current - 2);
-  }
 });
 
 setSliderValue(slider.value);
