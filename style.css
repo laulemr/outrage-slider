@@ -30,7 +30,7 @@ body {
 
 .slide {
   min-height: 100vh;
-  padding: 18px 5% 28px;
+  padding: 22px 6% 32px;
   background: #1B2430;
 }
 
@@ -39,7 +39,7 @@ body {
   justify-content: space-between;
   color: #D6DEE6;
   font-size: 12px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -52,89 +52,121 @@ body {
   color: #F7F3EA;
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 54px;
-  margin-top: 36px;
-  align-items: center;
-}
-
-.eyebrow,
-.instruction,
-.status,
-.footer-note {
-  color: #D6DEE6;
+.intro {
+  max-width: 960px;
+  margin: 34px auto 28px;
+  text-align: center;
 }
 
 .eyebrow {
+  color: #D6DEE6;
   font-size: 13px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 h1 {
-  margin: 12px 0 24px;
+  margin: 10px 0 14px;
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.05;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 1.02;
   font-weight: 900;
   text-transform: uppercase;
 }
 
 h1 span {
-  display: block;
   color: #FF8A80;
 }
 
+.subhead {
+  margin: 0 auto;
+  max-width: 680px;
+  color: #D6DEE6;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
+}
+
+.control-panel {
+  max-width: 1080px;
+  margin: 28px auto 18px;
+  padding: 24px;
+  border: 2px solid #7F8A99;
+  display: grid;
+  grid-template-columns: 180px 120px 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
 .label-red {
-  margin: 18px 0 4px;
+  margin: 0 0 4px;
   color: #FF8A80;
-  font-size: 13px;
-  letter-spacing: 0.25em;
+  font-size: 12px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .metric-label {
   margin: 0;
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
-  font-size: 44px;
+  font-size: 34px;
   text-transform: uppercase;
 }
 
 .score {
-  margin: 12px 0 10px;
+  margin: 0;
   color: #FF8A80;
+  white-space: nowrap;
 }
 
 .score #score {
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
-  font-size: 68px;
+  font-size: 58px;
 }
 
 .score span:last-child {
   color: #D6DEE6;
-  font-size: 16px;
-  margin-left: 8px;
+  font-size: 18px;
+  margin-left: 4px;
 }
 
-.slider-label {
+.slider-block label {
   display: block;
-  margin-top: 12px;
+  margin-bottom: 6px;
   font-weight: bold;
   color: #F7F3EA;
 }
 
-.instruction,
-.status {
+.instruction {
+  margin: 0 0 12px;
+  color: #D6DEE6;
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 1.45;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #FF8A80;
+}
+
+input[type="range"]:focus,
+input[type="range"]:focus-visible {
+  outline: 4px solid #FFD166;
+  outline-offset: 8px;
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: #D6DEE6;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .step-controls {
   display: flex;
-  gap: 12px;
-  margin: 16px 0;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -144,7 +176,7 @@ h1 span {
   border: 2px solid #FF8A80;
   padding: 10px 14px;
   font-size: 13px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -165,55 +197,56 @@ h1 span {
   cursor: not-allowed;
 }
 
-input[type="range"] {
-  width: 100%;
-  accent-color: #FF8A80;
-}
-
-input[type="range"]:focus,
-input[type="range"]:focus-visible {
-  outline: 4px solid #FFD166;
-  outline-offset: 8px;
-}
-
-.scale {
-  display: flex;
-  justify-content: space-between;
+.status {
+  max-width: 1080px;
+  margin: 0 auto 22px;
   color: #D6DEE6;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.45;
+  text-align: center;
 }
 
 .feed {
-  border-top: 2px solid #7F8A99;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.feed h2 {
+  margin: 0 0 14px;
+  color: #F7F3EA;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .feed ol {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  gap: 14px;
 }
 
 .feed li {
   display: grid;
-  grid-template-columns: 48px 90px 1fr;
+  grid-template-columns: 48px 110px 1fr;
   gap: 16px;
-  align-items: baseline;
-  padding: 20px 0;
-  border-bottom: 2px solid #7F8A99;
+  align-items: center;
+  padding: 18px;
+  border: 2px solid #7F8A99;
+  background: rgba(247, 243, 234, 0.04);
 }
 
 .rank {
   color: #D6DEE6;
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .category {
   color: #D6DEE6;
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -223,48 +256,44 @@ input[type="range"]:focus-visible {
 
 .headline {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(22px, 3vw, 31px);
+  font-size: clamp(20px, 2.4vw, 28px);
   font-style: italic;
   font-weight: bold;
   line-height: 1.35;
   color: #F7F3EA;
 }
 
-.text-version {
+.help {
   max-width: 780px;
-  margin-top: 52px;
+  margin: 26px auto 0;
   color: #F7F3EA;
 }
 
-.text-version summary {
+.help summary {
   cursor: pointer;
-  color: #F7F3EA;
   font-weight: bold;
   text-decoration: underline;
 }
 
-.text-version summary:focus,
-.text-version summary:focus-visible {
+.help summary:focus,
+.help summary:focus-visible {
   outline: 4px solid #FFD166;
   outline-offset: 4px;
 }
 
-.text-version p {
+.help p {
+  color: #D6DEE6;
   line-height: 1.6;
 }
 
 .footer-note {
-  margin-top: 56px;
-  font-size: 15px;
-}
-
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  max-width: 900px;
+  margin: 28px auto 0;
+  color: #F7F3EA;
+  font-size: 18px;
+  line-height: 1.45;
+  text-align: center;
+  font-weight: bold;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -275,13 +304,18 @@ input[type="range"]:focus-visible {
   }
 }
 
-@media (max-width: 850px) {
-  .layout {
+@media (max-width: 900px) {
+  .control-panel {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .step-controls {
+    justify-content: center;
   }
 
   .feed li {
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 42px 1fr;
   }
 
   .category,
