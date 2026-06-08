@@ -1,116 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Feed — Outrage Slider</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+```html
+<p>
+  <iframe
+    style="border:0;"
+    title="The Feed interactive activity: Outrage Slider"
+    src="https://laulemr.github.io/outrageslider/?canvas-refresh=4"
+    width="100%"
+    height="900"
+    loading="eager"
+    allowfullscreen>
+  </iframe>
+</p>
 
-<body>
-  <a class="skip-link" href="#increaseBtn">Skip to outrage controls</a>
+<div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
 
-  <main class="slide" aria-labelledby="slide-title">
-    <header class="topbar">
-      <p><span aria-hidden="true">•</span> The Invisible Editor</p>
-      <p class="counter" aria-label="Slide 4 of 12">04 / 12</p>
-    </header>
+  <h2>The Model, Live</h2>
 
-    <section class="layout">
-      <aside class="controls" aria-labelledby="slide-title">
-        <p class="eyebrow">The Model, Live</p>
+  <h3>Move the slider. Watch your world rearrange.</h3>
 
-        <h1 id="slide-title">
-          Move the slider. Watch your world
-          <span>rearrange.</span>
-        </h1>
+  <p>
+    This interactive activity demonstrates how changing a ranking goal can
+    change what appears in a social media feed.
+  </p>
 
-        <p class="label-red">Optimise for</p>
-        <p class="metric-label">Outrage</p>
+  <p>
+    The ranking goal in this activity is outrage. Increasing outrage causes
+    the system to prioritize more emotionally charged and conflict-oriented content.
+  </p>
 
-        <p class="score" aria-hidden="true">
-          <span id="score">0</span>
-          <span>/ 10</span>
-        </p>
+  <h3>How the activity works</h3>
 
-        <label for="outrageSlider" class="slider-label">
-          Outrage level
-        </label>
+  <p>
+    Users can adjust an outrage level from 0 to 10 using buttons or a slider.
+  </p>
 
-        <p id="slider-description" class="instruction">
-          Use the buttons or the slider to change the feed from calm to inflamed.
-          Keyboard users can Tab to the buttons and press Enter or Space.
-          You can also Tab to the slider and use arrow keys.
-        </p>
+  <p>
+    At lower outrage levels, the feed prioritizes calmer content such as
+    research, local events, culture, community information, and public policy.
+  </p>
 
-        <div class="step-controls" aria-label="Outrage level controls">
-          <button id="decreaseBtn" type="button">
-            Decrease outrage
-          </button>
+  <p>
+    At higher outrage levels, the feed prioritizes content that emphasizes
+    controversy, backlash, conflict, anger, and public disputes.
+  </p>
 
-          <button id="increaseBtn" type="button">
-            Increase outrage
-          </button>
-        </div>
+  <h3>Key takeaway</h3>
 
-        <input
-          id="outrageSlider"
-          type="range"
-          min="0"
-          max="10"
-          value="0"
-          step="1"
-          aria-describedby="slider-description slider-status"
-        />
+  <p>
+    A feed does not simply display information. It ranks information according
+    to the goals it is designed to optimize.
+  </p>
 
-        <div class="scale" aria-hidden="true">
-          <span>Calm</span>
-          <span>Inflamed</span>
-        </div>
+  <p>
+    Changing the ranking goal changes what users are more likely to see,
+    engage with, and believe is important.
+  </p>
 
-        <p id="slider-status" class="status" aria-live="polite">
-          Outrage level 0 out of 10. Your feed favours calmer, lower-conflict items.
-        </p>
-      </aside>
+  <p>
+    This is not hypothetical. This is how recommendation systems shape
+    information environments.
+  </p>
 
-      <section class="feed" aria-labelledby="feed-heading">
-        <h2 id="feed-heading" class="sr-only">Ranked feed results</h2>
-        <ol id="feedList"></ol>
-      </section>
-    </section>
-
-    <section class="text-version" aria-labelledby="text-version-heading">
-      <details>
-        <summary id="text-version-heading">
-          Accessible text version of this activity
-        </summary>
-
-        <p>
-          This activity shows how changing one ranking goal can rearrange a feed.
-        </p>
-
-        <p>
-          At lower outrage levels, the feed favours calmer stories about research,
-          local updates, culture, and policy.
-        </p>
-
-        <p>
-          At higher outrage levels, the feed prioritises conflict-heavy headlines
-          about backlash, controversy, anger, and public disputes.
-        </p>
-
-        <p>
-          The point: a feed does not simply show information. It ranks information
-          according to what the system is optimising for.
-        </p>
-      </details>
-    </section>
-
-    <p class="footer-note">
-      This is not hypothetical. This is the model.
-    </p>
-  </main>
-
-  <script src="app.js"></script>
-</body>
-</html>
+</div>
+```
